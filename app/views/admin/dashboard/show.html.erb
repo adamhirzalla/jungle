@@ -4,18 +4,18 @@
     <h1>Admin &raquo; Dashboard</h1>
   </header>
 
-  <div class="panel panel-primary">
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <h4>Products: <%= @products.count %></h4>
+      <h4>Products &raquo; <span class="badge"><%= @products.count %></span></h4>
     </div>
     <div class="panel-body">
       <p>See all <%= link_to 'products', admin_products_path %>.</p>
     </div>
   </div>
 
-  <div class="panel panel-primary">
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <h4>Categories: <%= @categories.count %></h4>
+      <h4>Categories &raquo; <span class="badge"><%= @categories.count %></span></h4>
     </div>
     <div class="panel-body">
       <ul class="list-group">
