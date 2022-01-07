@@ -12,13 +12,13 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-      redirect_to order, notice: 'Your Order has been placed.'
+      redirect_to order, flash: { success: 'Your Order has been placed.' }
     else
-      redirect_to cart_path, flash: { error: order.errors.full_messages.first }
+      redirect_to cart_path, flash: { danger: order.errors.full_messages.first }
     end
 
   rescue Stripe::CardError => e
-    redirect_to cart_path, flash: { error: e.message }
+    redirect_to cart_path, flash: { danger: e.message }
   end
 
   private
