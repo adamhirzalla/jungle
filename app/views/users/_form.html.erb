@@ -1,29 +1,27 @@
+<div class="user-form">
 <%= form_for :user, url: '/users' do |form| %>
 
+  <h2 class="text-center">Sign Up</h2>
   <div class="form-group">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, class: 'form-control' %>
+    <%= form.text_field :first_name, class: "form-control", placeholder: "First Name" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, class: 'form-control' %>
+    <%= form.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: 'form-control' %>
+    <%= form.text_field :email, class: "form-control", placeholder: "Email" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :password %>
-    <%= form.password_field :password, class: 'form-control' %>
+    <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
   </div>
-
   <div class="form-group">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, class: 'form-control' %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation" %>
   </div>
-
-  <%= form.submit 'Signup', class: 'btn btn-primary' %>
+  <div class ="text-center form-group">
+    <%= form.submit "Sign Up", class: "btn btn-primary" %>
+  </div>  
+  
+  <div class="text-center">Have an account already? <%= link_to 'Log in!', '/login' %>
+  </div>
 <% end %>
+</div>

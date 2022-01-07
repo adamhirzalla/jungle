@@ -5,6 +5,7 @@
 
 // App
 @import "products";
+@import "forms";
 
 // Global
 body {
@@ -14,4 +15,21 @@ body {
 // Bootstrap adjustments
 form.button_to {
   display: inline;
+}
+
+.thumbnail {
+  background: #222222;
+  border-radius: 1em;
+
+  .caption {
+    color: #9d9d9d;
+  }
+}
+
+.container {
+  .alert {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

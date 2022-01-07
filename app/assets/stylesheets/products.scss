@@ -55,10 +55,12 @@ main section.categories-show {
         top: 0;
         left: 0;
         padding: 10px;
-        background-color: pink;
+        background-color: red;
         border-top-left-radius: 4px;
         border-bottom-right-radius: 20px;
         font-size: 0.8em;
+        color: white;
+        opacity: 0.5;
       }
 
       &:hover {
