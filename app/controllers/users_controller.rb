@@ -3,13 +3,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    input = user_params
+    input[:email].downcase!
+    user = User.new(input)
 
     if user.save
       session[:user_id] = user.id
-      redirect_to '/', notice: 'User successfully created!'
+      redirect_to '/', flash: { success: 'User successfully created!' }
     else
-      redirect_to '/signup'
+      flash.now[:danger] = user.errors.full_messages
+      render :new
     end
   end
 
