@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     input = login_params
+    # downcasing logged in email (emails are case insensitive)
     user = User.find_by_email(input[:email].downcase)
     if user.nil?
       flash.now[:danger] = 'User not found'
