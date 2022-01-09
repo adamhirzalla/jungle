@@ -21,8 +21,14 @@ end
 
 # Let's do this ...
 
-## CATEGORIES
+# Sales
+puts "Finding or Creating Sales ..."
+Sale.create! name: 'X-mas', starts_on: 'Dec 5, 2021', ends_on: 'Jan 3, 2022', percent_off: 50
+Sale.create! name: 'Winter', starts_on: 10.days.ago, ends_on: 3.month.from_now, percent_off: 30
+Sale.create! name: 'Clearance', starts_on: 5.month.from_now, ends_on: 6.month.from_now, percent_off: 25
+Sale.create! name: 'Dummy', starts_on: 5.month.ago, ends_on: 3.month.ago, percent_off: 10
 
+## CATEGORIES
 puts "Finding or Creating Categories ..."
 
 cat1 = Category.find_or_create_by! name: 'Apparel'
