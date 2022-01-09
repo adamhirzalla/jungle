@@ -11,3 +11,10 @@
   <% end %>
 </div>
 <% end %>
+
+<% if active_sale? %>
+<div class="alert alert-success">
+There's an active <strong><%= sale.name %></strong> sale going on!
+<strong>Everything is <%= sale.percent_off %>% off!</strong> 
+</div>
+<% end %>
