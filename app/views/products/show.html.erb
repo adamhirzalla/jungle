@@ -21,7 +21,14 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= humanized_money_with_symbol @product.price %></dd>
+          <% if active_sale? %>
+            <dd>
+            <%= humanized_money_with_symbol @product.price * (100 - sale.percent_off)/100 %>
+            <s><%= humanized_money_with_symbol @product.price %></s>
+            </dd>
+          <% else %>
+            <dd><%= humanized_money_with_symbol @product.price %></dd>
+          <% end %>
         </dl>
       </div>
     </div>
