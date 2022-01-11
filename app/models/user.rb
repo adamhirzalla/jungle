@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   def self.authenticate_with_credentials(email, password)
     # downcasing logged in email (emails are case insensitive)
     # and getting rid of spaces in email 
-    email = email.split.first.downcase
+    email = email.split.first.downcase unless email.empty?
     user = User.find_by_email(email)
     if user.nil? || !user.authenticate(password)
       nil

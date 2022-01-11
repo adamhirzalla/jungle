@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :show]
 
-  resource :users, only: [:create]
+  post 'signup', to: 'users#create'
   get 'signup', to: 'users#new'
 
   get 'login', to: 'sessions#new'
