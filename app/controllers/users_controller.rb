@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   def create
     input = user_params
     # downcasing registered email (emails are case insensitive)
-    input[:email].downcase!
+    # and getting rid of spaces in email 
+    input[:email].split.first.downcase!
     user = User.new(input)
 
     if user.save
