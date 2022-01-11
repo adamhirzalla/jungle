@@ -3,20 +3,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    input = login_params
-    # downcasing logged in email (emails are case insensitive)
-    user = User.find_by_email(input[:email].downcase)
-    if user.nil?
-      flash.now[:danger] = 'User not found'
-      render :new
-    # If the user exists AND the password entered is correct.
-    elsif user.authenticate(input[:password])
+    if user = User.authenticate_with_credentials(
+      login_params[:email], 
+      login_params[:password]
+    )
       # Save the user id inside the browser cookie. This is how we keep the user 
       # logged in when they navigate around our website.
       session[:user_id] = user.id
       redirect_to '/', flash: { success: 'Successfully logged in!' }
     else
-    # If user's login doesn't work, send them back to the login form.
+    # If user is not authenticated, send them back to the login form.
       flash.now[:danger] = 'Invalid email/password'
       render :new
     end
