@@ -1,14 +1,11 @@
 <section class="orders-show">
 
-  <header class="text-center well">
-    <h1>Thank you for your order!</h4>
-    <p>Order #<%= @order.id %></p>
-    <p>Email: <%= @order.email %></p>
-    <p>Total: <%= humanized_money_with_symbol @order.total_cents / 100.0 %></p>
+  <header class="order-summary">
+    <h2 class="lead">✔️  Thank you, your order has been placed!</h1>
+    <h4>An email confirmation has been sent to: <b><%= @order.email %></b>.</h4>
+    <h4><b>Order Number: <%= @order.id %></b></h4>
   </header>
 
-  <%# TODO: remove if not needed %>
-  <%# <div class="order-summary jumbotron"> %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -38,7 +35,5 @@
   <p class="text-center">
     <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
   </p>
-  <%# </div> %>
-
 
 </section>
